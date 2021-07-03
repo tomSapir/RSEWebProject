@@ -23,7 +23,7 @@ public class Stock
         this.companyName = companyName;
         this.symbol = symbol;
         this.currValue = currValue;
-        transactionsHistory = new ArrayList();
+        transactionsHistory = new ArrayList<>();
         buyCommands = new Commands(false);  // false -> waiting list for buy
         sellCommands = new Commands(true);  // true -> waiting list for sell
     }
@@ -33,7 +33,7 @@ public class Stock
         this.companyName = src.getRseCompanyName();
         this.symbol = src.getRseSymbol().toUpperCase(Locale.ROOT);
         this.currValue = src.getRsePrice();
-        transactionsHistory = new ArrayList();
+        transactionsHistory = new ArrayList<>();
         buyCommands = new Commands(false);  // false -> waiting list for buy
         sellCommands = new Commands(true);  // true -> waiting list for sell
     }
@@ -45,8 +45,8 @@ public class Stock
         if(transactionsHistory.size() != 0)
         {
             Trade tmpTrade = transactionsHistory.get(transactionsHistory.size() - 1);
-            this.currValue = tmpTrade.getPrice();
-            this.transactionsCycle += tmpTrade.getTotalSum();
+            this.currValue = tmpTrade.getStockPrice();
+            this.transactionsCycle += tmpTrade.getTotalTradeValue();
         }
     }
     /******************************************************************************/
@@ -55,33 +55,33 @@ public class Stock
     public int getCurrValue() { return currValue; }
     public int getTransactionsCycle() { return transactionsCycle; }
     public List<Trade> getTransactionsHistory() { return transactionsHistory; }
-    public Map<Integer, List<Command>> getBuyCommands() { return buyCommands.getCommands(); }
-    public Map<Integer, List<Command>> getBSellCommands() { return buyCommands.getCommands(); }
+    public Map<Integer, List<Command>> getBuyCommands() { return buyCommands.getCommandsMap(); }
+    public Map<Integer, List<Command>> getBSellCommands() { return buyCommands.getCommandsMap(); }
     /******************************************************************************/
     public void addTransaction(Trade trade)
     {
         transactionsHistory.add(trade);
-        transactionsCycle += trade.getTotalSum();
+        transactionsCycle += trade.getTotalTradeValue();
     }
     /******************************************************************************/
     // This method submit new command to the engine
     public TradeDTO addCommand(Command cmd)
     {
-        TradeDTO tradeDescription = new TradeDTO(cmd.getAmount());
+        TradeDTO tradeDescription = new TradeDTO(cmd.getAmountOfStocks());
 
         if(cmd.getWay() == Command.Way.BUY) // buy command
-            sellCommands.searchMatch(cmd, transactionsHistory, true, tradeDescription);
+            sellCommands.findMatchCmd(cmd, transactionsHistory, true, tradeDescription);
         else    // sell command
-            buyCommands.searchMatch(cmd, transactionsHistory, false, tradeDescription);
+            buyCommands.findMatchCmd(cmd, transactionsHistory, false, tradeDescription);
 
         // this.setCurrValue();
 
-        if(cmd.getStockAmount() != 0)   // in case of some of the offer is relevent
+        if(cmd.getAmountOfStocks() != 0)   // in case of some of the offer is relevent
         {
             if(cmd.getWay() == Command.Way.BUY)
-                buyCommands.addCommand(cmd, this.currValue);
+                buyCommands.addCmd(cmd, this.currValue);
             else
-                sellCommands.addCommand(cmd, this.currValue);
+                sellCommands.addCmd(cmd, this.currValue);
         }
 
         return tradeDescription;
