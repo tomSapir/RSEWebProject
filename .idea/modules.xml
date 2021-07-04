@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/RSEWebProject.iml" filepath="$PROJECT_DIR$/RSEWebProject.iml" />
+      <module fileurl="file://$PROJECT_DIR$/WEBModule/WEBModule.iml" filepath="$PROJECT_DIR$/WEBModule/WEBModule.iml" />
       <module fileurl="file://$PROJECT_DIR$/logicEngine/logicEngine.iml" filepath="$PROJECT_DIR$/logicEngine/logicEngine.iml" />
     </modules>
   </component>
