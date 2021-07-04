@@ -2,14 +2,13 @@
   <artifact type="exploded-war" build-on-make="true" name="WEBModule:WebApp exploded">
     <output-path>$PROJECT_DIR$/out/artifacts/WEBModule_WebApp_exploded</output-path>
     <root id="root">
-      <element id="javaee-facet-resources" facet="WEBModule/web/WebApp" />
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
           <element id="module-output" name="WEBModule" />
         </element>
         <element id="directory" name="lib">
           <element id="artifact" artifact-name="logicEngine:jar" />
-          <element id="file-copy" path="$PROJECT_DIR$/../gson-2.1.jar" />
+          <element id="file-copy" path="$USER_HOME$/Downloads/gson-2.1.jar" />
         </element>
       </element>
     </root>

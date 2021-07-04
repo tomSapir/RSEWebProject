@@ -13,7 +13,6 @@ public class User
     {
         if (type == Type.TRADER)
             holdings = new UserHoldings();
-
         this.name = name;
         this.type = type;
     }
@@ -27,4 +26,5 @@ public class User
         holdings.updateHoldings(stock.getSymbol(), stockAmount, stock.getCurrValue(), way);
     }
     /******************************************************************************/
+
 }

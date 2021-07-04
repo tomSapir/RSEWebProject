@@ -12,8 +12,18 @@ public class Users
     /******************************************************************************/
     public Users() { users = new HashMap<>(); }
     /******************************************************************************/
-    public Collection<User> getUsers() { return this.users.values(); }
+    public synchronized Collection<User> getUsers() { return this.users.values(); }
     /******************************************************************************/
     public void clearData() { users.clear(); }
+    /******************************************************************************/
+    public synchronized void addUser(String userName, User.Type type)
+    {
+        users.put(userName, new User(userName,type));
+    }
+    /******************************************************************************/
+     public boolean isUserExist(String userName)
+     {
+         return users.containsKey(userName);
+     }
     /******************************************************************************/
 }
