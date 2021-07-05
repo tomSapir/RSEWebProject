@@ -8,8 +8,6 @@ import java.util.List;
 
 public class Command
 {
-
-
     /******************************************************************************/
     public enum Way { BUY, SELL}
     public enum Type { LMT, MKT, FOK, IOC}

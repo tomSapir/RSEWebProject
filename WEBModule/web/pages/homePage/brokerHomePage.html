@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Ritzpa Stock Exchange</title>
+    <title>Ritzp a Stock Exchange</title>
     <script src="/jquery-3.6.0.min.js"></script>
     <script src="broker2.js"></script>
 </head>
@@ -35,7 +35,11 @@
             </tr>
         </table>
 
-        <button type="button" id="loadFileBtn">Load File</button>
+        <form action="FileUploadServlet" enctype="multipart/form-data" method="POST">
+            <input type="file" name="file1"><br>
+            <input type="Submit" value="Upload File"><br>
+        </form>
+
         <button type="button" id="issueStock">Issue Stock</button>
     </div>
 

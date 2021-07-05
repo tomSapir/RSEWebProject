@@ -16,7 +16,7 @@ public class SignUpServlet extends HttpServlet
 {
     /******************************************************************************/
     private String LOG_IN_URL = "../logIn/logIn.html";
-    private String RSE_HOME_PAGE_URL =  "../homePage/homePage.html";
+    private String RSE_HOME_PAGE_URL =  "../homePage/brokerHomePage.html";
     /******************************************************************************/
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
