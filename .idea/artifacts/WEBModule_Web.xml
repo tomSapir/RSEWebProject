@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="WEBModule:Web">
+    <output-path>$PROJECT_DIR$/out/artifacts</output-path>
+    <root id="archive" name="WEBModule_Web.war">
+      <element id="artifact" artifact-name="WEBModule:Web exploded" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="library" level="project" name="apache-tomcat-8.5.23" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>

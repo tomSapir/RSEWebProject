@@ -34,6 +34,8 @@ public class ServletsUtils
         return (Stocks)servletContext.getAttribute(STOCK_MANAGER_ATTRIBUTE);
     }
     /******************************************************************************/
+
+
     /******************************************************************************/
 
 }

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>Ritzpa Stock Exchange</title>
+  <!--<link rel="stylesheet" href="../../common/bootstrap.min.css">-->
+  <script src="/jquery-3.6.0.min.js"></script>
+  <script src="logIn.js"></script>
+</head>
+
+<body>
+
+<div class="container">
+  <h1 id = "mainTitle">Welcome to R$E</h1>
+  <p id = "subTitle">Ritzpa Stock Exchange</p>
+
+  <form id="signUpForm" method="GET" action="logInServlet">
+    <label class="lbl">User Name:</label><br>
+    <input type="text" name="username" class=""/><br>
+    <label class="lbl">Choose your role:</label><br>
+    <input type="radio" class="radio" name="type" value="Admin">
+    <label class="lbl">Admin</label><br>
+    <input type="radio" class="radio" name="type" value="Broker">
+    <label class="lbl">Broker</label><br>
+    <input type="submit" value="sign up"/>
+  </form>
+
+  <div id="error-placeholder" class="alert-danger" role="alert"></div>
+</div>
+
+</body>
+
+</html>
